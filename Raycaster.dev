@@ -51,11 +51,12 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=Untitled2
+FileName=Raycaster.c
 Folder=
 Compile=1
 Link=1
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
+CompileCpp=1
 
