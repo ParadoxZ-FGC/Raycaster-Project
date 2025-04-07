@@ -4,20 +4,16 @@
  *	Description : Raycaster game utilizing non-euclidian geometry,
  *	in this case hyperbolic geometry, 
  *	to create illusory puzzles the player must solve to save the princess.
- */
-// Controls : Forward = W, Back = S, Turn Left = A, Turn Right = D	
+*/
+/*
+ * Controls : 
+ * 	W - Forward
+ * 	A - Turn Left
+ * 	S - Back
+ * 	D - Turn Right
+*/
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <math.h>
-#include <Windows.h>
-#include <GL/glut.h>
-
-#include "texture/allTextures.ppm"	// Include collision textures
-#include "texture/sky.ppm"			// Include sky texture
-#include "texture/title.ppm"		// Include title screen texture
-#include "texture/win.ppm"			// Include win screen texture
+#include "stp.h"
 
 float degToRad(float a) {return a*M_PI/180.0;}
 float fixAngle(float a) {if (a > 359) {a -= 360;} if (a < 0) {a += 360;} return a;}
@@ -26,15 +22,9 @@ float px, py, pdx, pdy, pa;		// Player position
 float frame1, frame2, fps;		// Frames per second
 int gameState = 0, timer = 0;	// Game state -> Title screen, game, lose
 float fade = 0;					// Fade screens up from black
-#define SCREEN_W 960
-#define SCREEN_H 640
-#define PI 3.14159274
 
 
 // <---------------------- MAP ---------------------->
-#define mapX 8	// Initalize map width
-#define mapY 8	// Initalize map height
-#define mapS 64	// Initalize map size
 int mapW[] = 	// Initilize map array matrix for walls
 {
 	1,1,1,1,1,1,1,1,
@@ -70,13 +60,6 @@ int mapC[] =	// Initilize map array matrix for ceiling
 };
 
 // <---------------------- SPRITES ---------------------->
-typedef struct
-{
-	int type;		// Static, key, enemy
-	int state;		// On / Off
-	int map;		// Texture to show
-	float x,y,z;	// Position
-} sprite; sprite sp[4];
 int depth[120];      // Hold wall line depth to compare for sprite depth
 
 void drawSprite()
