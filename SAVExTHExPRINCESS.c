@@ -17,7 +17,7 @@
 #include "texture/allTextures.ppm"	// Include collision textures
 #include "texture/sky.ppm"			// Include sky texture
 #include "texture/title.ppm"		// Include title screen texture
-#include "texture/win.ppm"
+#include "texture/win.ppm"			// Include win screen texture
 
 float degToRad(float a) {return a*M_PI/180.0;}
 float fixAngle(float a) {if (a > 359) {a -= 360;} if (a < 0) {a += 360;} return a;}
